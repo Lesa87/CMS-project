@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create category</div>
+                    <div class="card-header">Edit category</div>
 
                     <div class="card-body">
                         @if($errors->any())
@@ -20,13 +20,13 @@
                             </div>
                         @endif
 
-                            <form action = "/categories/add" method="POST">
+                            <form action = "/categories/{{$category->id}}}/update" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder = "Name" name = "name">
+                                    <input type="text" class="form-control"name = "name" value = {{$category->name}}>
                                 </div>
                                 <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-success">Create category</button>
+                                    <button type="submit" class="btn btn-success">Update category</button>
                                 </div>
                             </form>
 
